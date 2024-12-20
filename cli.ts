@@ -37,7 +37,7 @@ async function start(cmd: 'start', options: any) {
 
   if (pm2) {
     // Start for pm2
-    child_process.exec(`pm2 start --name mongoku ${entryPath}`, (err, stdout, stderr) => {
+    return child_process.exec(`pm2 start --name mongoku ${entryPath}`, (err, stdout, stderr) => {
       if (err) {
         console.log("Error while launching with pm2: ", err);
       } else {
@@ -45,12 +45,11 @@ async function start(cmd: 'start', options: any) {
         console.log("[Mongoku] Launched with PM2.\nAvailable at http://localhost:3100/");
       }
     });
-    return;
   }
 
   if (forever) {
     // Start for forever
-    child_process.exec(`forever --uid mongoku start -a ${entryPath}`, (err, stdout, stderr) => {
+    return child_process.exec(`forever --uid mongoku start -a ${entryPath}`, (err, stdout, stderr) => {
       if (err) {
         console.log("Error while launching with forever: ", err);
       } else {
@@ -58,7 +57,6 @@ async function start(cmd: 'start', options: any) {
         console.log("[Mongoku] Launched with forever.\nAvailable at http://localhost:3100/");
       }
     });
-    return;
   }
 
   await server.start();

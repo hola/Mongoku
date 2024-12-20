@@ -186,4 +186,13 @@ export class ExploreComponent implements OnInit {
     this.update();
   }
 
+  goInsert() {
+    this.router.navigate([
+      'servers',     this.server,
+      'databases',   this.database,
+      'collections', this.collection,
+      'new'
+    ]);
+  }
+
 }
