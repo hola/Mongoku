@@ -32,8 +32,6 @@ export class MongoManager {
     try {
       const client = await MongoClient.connect(urlStr, {
         readPreference: ReadPreference.SECONDARY_PREFERRED,
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
       });
       const server = new Server(hostname, client);
       this._servers[hostname] = server;

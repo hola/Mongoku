@@ -5,7 +5,7 @@ import * as path from 'path';
 
 import { createCommand } from 'commander';
 import * as figlet from 'figlet';
-import * as chalk from 'chalk';
+import chalk from 'chalk';
 import * as server from './server';
 
 const program = createCommand();
