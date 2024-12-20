@@ -4,6 +4,7 @@ hosts.db
 *.tgz
 
 # compiled output
+.angular/
 /dist
 /dist-server
 /tmp
