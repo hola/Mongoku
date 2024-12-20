@@ -230,7 +230,7 @@ api.get('/servers/:server/databases/:database/collections/:collection/count', as
   let query = req.query.q;
   if (typeof query !== "object") {
     try {
-      query = JSON.parse(query as string);
+      query = JSON.parse(query||'');
     } catch (err) {
       return next(new Error(`Invalid query: ${query}`));
     }
